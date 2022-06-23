@@ -1,7 +1,7 @@
 # School-certificate
 
 ## List Students
-## AddStudent
+## Add Student
 ## Update Student
 ## Delete Student
 ## Show the student's school certificate
