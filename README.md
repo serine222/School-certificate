@@ -1,4 +1,4 @@
-# School-certificate
+# School-certificate ASP.NET 6
 
 ## List Students
 ## Add Student
