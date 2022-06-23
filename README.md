@@ -3,5 +3,5 @@
 ## List Students
 ## AddStudent
 ## Update Student
-## DeleteStudent
+## Delete Student
 ## Show the student's school certificate
