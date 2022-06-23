@@ -1,0 +1,110 @@
+﻿@model IEnumerable<corecrud.Models.Student>
+
+@{
+    ViewData["Title"] = "قائمة التلاميذ";
+}
+
+<h1 style="text-align: center;">قائمة التلاميذ</h1>
+
+<p>
+    <a asp-action="AddStudent" class="btn btn-warning">اضافة طالب</a>
+</p>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>
+                الاسم
+            </th>
+            <th>
+              اللقب
+            </th>
+            <th>
+                البريد الالكتروني
+            </th>
+
+             <th>
+               المستوى
+            </th>
+             <th>
+       
+              تاريخ الميلاد
+            </th>
+             <th>
+               المكان
+            </th>
+             <th>
+               رقم التسجيل
+            </th>
+             <th>
+                التخصص
+            </th>
+             <th>
+                التاريخ
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+              <td>
+                @Html.DisplayFor(modelItem => item.Niveau)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.numero)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Specialization)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+            
+               
+                 <div class="dropdown show">
+                            <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                العمليات
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" asp-action="ReadeStudent" asp-route-id="@item.Id">&nbsp;عرض شهادة المدرسية لطالب</a>
+                                <a class="dropdown-item" asp-action="UpdateStudent" asp-route-id="@item.Id">&nbsp;  تعديل بيانات الطالب</a>
+                                <form asp-action="DeleteStudent" asp-route-id="@item.Id">
+                                        <button type="Submit" class="dropdown-item"> حذف بيانات الطالب</button>
+                     
+                                 </form>
+                            </div>
+                  </div>
+
+
+
+
+
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

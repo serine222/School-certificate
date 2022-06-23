@@ -1,0 +1,50 @@
+﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+ <script src="~/lib/htmlTopdf/jspdf.debug.js"></script>
+         <script src="~/lib/htmlTopdf/html2canvas.min.js"></script>
+         <script src="~/lib/htmlTopdf/html2pdf.min.js"></script>
+
+
+<script>
+
+    const options = {
+   
+        margin: [0.5,-20,-4,-40],
+      filename: 'شهادة مدرسية.pdf',
+      image: { 
+        type: 'png', 
+        quality: 0.6
+      },
+      html2canvas: { 
+        scale: 1
+      },
+      jsPDF: { 
+        unit: 'mm', 
+        format: 'letter', 
+
+                orientation: 'portrait' 
+
+       
+      }
+    }
+    
+    $('.btn-download').click(function(e){
+      e.preventDefault();
+      const element = document.getElementById('invoice');
+      html2pdf().from(element).set(options).save();
+      X=100
+      y=700
+    });
+
+
+    function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+    </script>

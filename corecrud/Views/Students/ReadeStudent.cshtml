@@ -1,0 +1,61 @@
+﻿
+@model corecrud.Models.Student
+
+
+@{
+    ViewData["Title"] = "شهادة المدرسية";
+}
+     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+       <a  href="javascript:void(0)" class="btn-download  btn btn-warning">Download PDF  </a>
+    <div>
+<div  id="invoice"   style="text-align: center;" >
+            <input type="hidden" asp-for="Id"name="id" />
+             
+            <div  >
+                
+        <h3 style="text-align: center;">الجمهورية الجزائرية الديموقراطية الشعبية  </h3>
+        <h3 style="text-align: center;">وزارة التعليم العالي و البحث العلمي</h3>
+        <h3 style="text-align: right;">جامعة الجلفة</h3>
+       
+        </div>
+            <div class="norm">
+       
+        <h3 style="font-size: 60px;text-align: center;">شهادة مدرسية</h3>
+        <h1 style="text-align: right;"> الطالب (ة) <span>  : </span><span>@Html.DisplayFor(Model=>Model.Name)</span></h1>
+        </div>
+
+
+       
+
+            <div  class="meta">
+
+        <h1 style="text-align: right;"> المولود (ة) <span>  : </span> <span>@Html.DisplayFor(Model=>Model.BirthDate)</span></h1>
+        <h1 style="text-align: right;"> رقم التسجيل (ة)<span>  : </span> <span>@Html.DisplayFor(Model=>Model.numero)</span></h1>
+        </div>
+      
+        <div   class="inventory">
+
+       <h1 style="text-align: right;"> <span>  : </span>مسجل (ة) بالمؤسسة لمتابعة دراسته (ها) الجامعية في </h1>
+        <h1 style="text-align: right;"> السنة <span>  : </span><span>@Html.DisplayFor(Model=>Model.Niveau)</span></h1>
+        </div>
+        <div  class="sign">
+        <h1 style="text-align: right;"> السكن<span>  : </span> <span>@Html.DisplayFor(Model=>Model.City)</span></h1>
+        <h1 style="text-align: right;"> الميدان او الفرع <span>  : </span><span>@Html.DisplayFor(Model=>Model.Specialization)</span></h1>
+        <h1 style="text-align: right;"> خلال السنة الجامعية <span>  : </span><span>2022/2023</span></h1>
+        <h1 style="text-align: right;"> تاريخ <span>  : </span><span>@Html.DisplayFor(Model=>Model.Date)</span></h1>
+
+      </div>
+      </div>
+      </div>
+      <br />  <br />   <br /> <br />
+          
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
+
